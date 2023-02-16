@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+}
+
+.box {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(141, 236, 236);
+}
+
+.box2 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  width: 200px;
+  height: 200px;
+  background-color: hotpink;
+}
+
+#wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
