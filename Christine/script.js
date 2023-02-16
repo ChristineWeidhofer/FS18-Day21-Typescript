@@ -98,7 +98,6 @@ for (let i = 0; i < boxs.length; i++) {
         Swal.fire(`The price of the vehicle is: €&nbsp;${allVehicles[i].price}`);
     }
 }
-//Swal.fire('Any fool can use a computer')
 // von Julius für das Tertiary If:
 // let yesno = (this.companyCar==true)? "yes":"No"; // Create variable and make an if statement in a short way. After you can use this variable to print "yes" or "No" instead of "true" or "false"
 //     return `Hi, my name is ${this.name} and I'm ${this.age} years old. I need ${this.specialTool} Do I get a company car? ${yesno} `

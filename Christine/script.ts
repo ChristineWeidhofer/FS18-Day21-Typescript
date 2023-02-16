@@ -122,7 +122,6 @@ for(let i: number = 0; i < boxs.length; i++){
   }
 }
 
-//Swal.fire('Any fool can use a computer')
 
 // von Julius für das Tertiary If:
 
