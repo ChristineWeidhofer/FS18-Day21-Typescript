@@ -1,46 +1,48 @@
+// error is because of type thing of "Swal", but still works
+
 // Basic 1
 
 let selector = document.getElementById("result")as HTMLElement;
 let selWrap = document.getElementById("wrapper")as HTMLElement;
 
-class Person {
-  name: string;
-  age: number;
-  jobTitle: string;
-    constructor(name: string, age: number, jobTitle: string) {
-      this.name = name;
-      this.age = age;
-      this.jobTitle = jobTitle;
-    }
-    printGreet() {
-      return `Hello there, my name is ${this.name}, I am ${this.age} years old and I am a ${this.jobTitle}`;
-    }  
-}
+// class Person {
+//   name: string;
+//   age: number;
+//   jobTitle: string;
+//     constructor(name: string, age: number, jobTitle: string) {
+//       this.name = name;
+//       this.age = age;
+//       this.jobTitle = jobTitle;
+//     }
+//     printGreet() {
+//       return `Hello there, my name is ${this.name}, I am ${this.age} years old and I am a ${this.jobTitle}`;
+//     }  
+// }
 
-const person1 = new Person("Christine", 45, "Web Developer");
+// const person1 = new Person("Christine", 45, "Web Developer");
 
-console.log(person1);
-selector.innerHTML = person1.printGreet();
+// console.log(person1);
+// selector.innerHTML = person1.printGreet();
 
-// Basic 2
+// // Basic 2
 
-class PersonSalary extends Person {
-  salary: number;
-  jobLocation: string;
-    constructor(name: string, age: number, jobTitle: string, salary: number, jobLocation: string) {
-      super(name, age, jobTitle)
-      this.salary = salary;
-      this.jobLocation = jobLocation;
-    }
-  printSalary() {
-    return `<hr><br>${super.printGreet()}, I get ${this.salary} every month and I work in ${this.jobLocation}.`;
-  }  
-}
+// class PersonSalary extends Person {
+//   salary: number;
+//   jobLocation: string;
+//     constructor(name: string, age: number, jobTitle: string, salary: number, jobLocation: string) {
+//       super(name, age, jobTitle)
+//       this.salary = salary;
+//       this.jobLocation = jobLocation;
+//     }
+//   printSalary() {
+//     return `<hr><br>${super.printGreet()}, I get ${this.salary} every month and I work in ${this.jobLocation}.`;
+//   }  
+// }
 
-const person2 = new PersonSalary("Christine", 45, "Web Developer", 3000, "San Francisco");
+// const person2 = new PersonSalary("Christine", 45, "Web Developer", 3000, "San Francisco");
 
-console.log(person2);
-selector.innerHTML += person2.printSalary();
+// console.log(person2);
+// selector.innerHTML += person2.printSalary();
 
 // Advanced
 let allVehicles : any = [];
@@ -116,11 +118,11 @@ for(let i: number = 0; i < boxs.length; i++){
     }
   })
   function alertPrice() {
-    alert(`The price of the vehicle is: € ${allVehicles[i].price}`);
+    Swal.fire(`The price of the vehicle is: €&nbsp;${allVehicles[i].price}`);
   }
 }
 
-Swal.fire('Any fool can use a computer')
+//Swal.fire('Any fool can use a computer')
 
 // von Julius für das Tertiary If:
 

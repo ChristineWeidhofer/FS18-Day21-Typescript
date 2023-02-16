@@ -1,34 +1,40 @@
 "use strict";
+// error is because of type thing of "Swal", but still works
 // Basic 1
 let selector = document.getElementById("result");
 let selWrap = document.getElementById("wrapper");
-class Person {
-    constructor(name, age, jobTitle) {
-        this.name = name;
-        this.age = age;
-        this.jobTitle = jobTitle;
-    }
-    printGreet() {
-        return `Hello there, my name is ${this.name}, I am ${this.age} years old and I am a ${this.jobTitle}`;
-    }
-}
-const person1 = new Person("Christine", 45, "Web Developer");
-console.log(person1);
-selector.innerHTML = person1.printGreet();
-// Basic 2
-class PersonSalary extends Person {
-    constructor(name, age, jobTitle, salary, jobLocation) {
-        super(name, age, jobTitle);
-        this.salary = salary;
-        this.jobLocation = jobLocation;
-    }
-    printSalary() {
-        return `<hr><br>${super.printGreet()}, I get ${this.salary} every month and I work in ${this.jobLocation}.`;
-    }
-}
-const person2 = new PersonSalary("Christine", 45, "Web Developer", 3000, "San Francisco");
-console.log(person2);
-selector.innerHTML += person2.printSalary();
+// class Person {
+//   name: string;
+//   age: number;
+//   jobTitle: string;
+//     constructor(name: string, age: number, jobTitle: string) {
+//       this.name = name;
+//       this.age = age;
+//       this.jobTitle = jobTitle;
+//     }
+//     printGreet() {
+//       return `Hello there, my name is ${this.name}, I am ${this.age} years old and I am a ${this.jobTitle}`;
+//     }  
+// }
+// const person1 = new Person("Christine", 45, "Web Developer");
+// console.log(person1);
+// selector.innerHTML = person1.printGreet();
+// // Basic 2
+// class PersonSalary extends Person {
+//   salary: number;
+//   jobLocation: string;
+//     constructor(name: string, age: number, jobTitle: string, salary: number, jobLocation: string) {
+//       super(name, age, jobTitle)
+//       this.salary = salary;
+//       this.jobLocation = jobLocation;
+//     }
+//   printSalary() {
+//     return `<hr><br>${super.printGreet()}, I get ${this.salary} every month and I work in ${this.jobLocation}.`;
+//   }  
+// }
+// const person2 = new PersonSalary("Christine", 45, "Web Developer", 3000, "San Francisco");
+// console.log(person2);
+// selector.innerHTML += person2.printSalary();
 // Advanced
 let allVehicles = [];
 class Vehicles {
@@ -89,10 +95,10 @@ for (let i = 0; i < boxs.length; i++) {
         }
     });
     function alertPrice() {
-        alert(`The price of the vehicle is: € ${allVehicles[i].price}`);
+        Swal.fire(`The price of the vehicle is: €&nbsp;${allVehicles[i].price}`);
     }
 }
-Swal.fire('Any fool can use a computer');
+//Swal.fire('Any fool can use a computer')
 // von Julius für das Tertiary If:
 // let yesno = (this.companyCar==true)? "yes":"No"; // Create variable and make an if statement in a short way. After you can use this variable to print "yes" or "No" instead of "true" or "false"
 //     return `Hi, my name is ${this.name} and I'm ${this.age} years old. I need ${this.specialTool} Do I get a company car? ${yesno} `

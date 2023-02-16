@@ -35,3 +35,12 @@ body, html {
   justify-content: center;
   margin: 10rem;
 }
+
+.btnPrice {
+  background-color: #645CC9;
+  border: none;
+}
+
+.btnPrice:hover {
+  background-color: #645CC9;
+}
