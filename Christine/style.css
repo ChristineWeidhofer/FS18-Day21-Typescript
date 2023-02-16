@@ -33,5 +33,5 @@ body, html {
 #wrapper {
   display: flex;
   justify-content: center;
-  margin: 3rem;
+  margin: 10rem;
 }

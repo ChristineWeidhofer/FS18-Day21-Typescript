@@ -30,31 +30,36 @@ const person2 = new PersonSalary("Christine", 45, "Web Developer", 3000, "San Fr
 console.log(person2);
 selector.innerHTML += person2.printSalary();
 // Advanced
+let allVehicles = [];
 class Vehicles {
-    constructor(brand, year, color, price) {
+    constructor(image, brand, year, color, price) {
+        this.image = image;
         this.brand = brand;
         this.year = year;
         this.color = color;
         this.price = price;
+        allVehicles.push(this);
     }
     printAd() {
         return `<hr><br>Hello there, our car is made by ${this.brand}, it is from ${this.year} and is ${this.color}`;
     }
-    printPrice() {
-        return `€ ${this.price},--`;
+}
+const vehicle1 = new Vehicles("mercedes.jpg", "Mercedes", 1999, "silver", 50000);
+const vehicle2 = new Vehicles("audi.jpg", "Audi", 2015, "blue", 5000);
+const vehicle3 = new Vehicles("bmw.jpg", "BMW", 2022, "red", 30000);
+const vehicle4 = new Vehicles("vw.jpg", "VW", 2019, "black", 10000);
+class Motorbikes extends Vehicles {
+    constructor(image, brand, year, color, price, seats, fuel) {
+        super(image, brand, year, color, price);
+        this.seats = seats;
+        this.fuel = fuel;
+    }
+    printAd() {
+        return `<hr><br>This bike has ${this.seats} seat(s) and uses ${this.fuel}.`;
     }
 }
-const vehicle1 = new Vehicles("Mercedes", 1999, "silver", 50000);
-const vehicle2 = new Vehicles("Audi", 2015, "blue", 5000);
-const vehicle3 = new Vehicles("BMW", 2022, "red", 30000);
-const vehicle4 = new Vehicles("VW", 2019, "black", 10000);
-console.log(vehicle1);
-console.log(vehicle2);
-console.log(vehicle3);
-console.log(vehicle4);
-// selector.innerHTML += vehicle1.printAd();
-// selector.innerHTML += vehicle1.printPrice();
-let allVehicles = [vehicle1, vehicle2, vehicle3, vehicle4]; //create array of objects
+const moto1 = new Motorbikes("honda.jpg", "Honda", 2018, "green", 3000, 2, "electric power");
+console.log(moto1);
 console.log(allVehicles);
 for (let val of allVehicles) {
     selWrap.innerHTML += ` 
@@ -66,10 +71,11 @@ for (let i = 0; i < boxs.length; i++) {
     boxs[i].addEventListener("click", function () {
         boxs[i].style.backgroundColor = "white";
         boxs[i].innerHTML = `
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 20rem;">
+    <img src="${allVehicles[i].image}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${allVehicles[i].brand}</h5>
-      <p class="card-text">This vehicle was built in ${allVehicles[i].year}</p>
+      <p class="card-text">${allVehicles[i].printAd()}</p>
       <a href="#" class="btn btn-primary btnPrice">Price</a>
     </div>
     </div>
@@ -86,3 +92,7 @@ for (let i = 0; i < boxs.length; i++) {
         alert(`The price of the vehicle is: € ${allVehicles[i].price}`);
     }
 }
+Swal.fire('Any fool can use a computer');
+// von Julius für das Tertiary If:
+// let yesno = (this.companyCar==true)? "yes":"No"; // Create variable and make an if statement in a short way. After you can use this variable to print "yes" or "No" instead of "true" or "false"
+//     return `Hi, my name is ${this.name} and I'm ${this.age} years old. I need ${this.specialTool} Do I get a company car? ${yesno} `
