@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -8,31 +10,31 @@ body, html {
   width: 100%;
 }
 
+h1, .orb {
+  font-family: 'Orbitron', sans-serif;
+}
+
 .box {
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
+  margin: 8rem 1rem;
   width: 200px;
   height: 200px;
   background-color: rgb(141, 236, 236);
+  transition: all 0.2s linear;
 }
 
-.box2 {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  width: 200px;
-  height: 200px;
-  background-color: hotpink;
+.box:hover {
+  transform: skew(-1deg);
 }
 
 #wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: first baseline;
   margin: 10rem;
 }
 

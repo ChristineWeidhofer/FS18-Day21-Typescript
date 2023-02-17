@@ -47,7 +47,7 @@ class Vehicles {
         allVehicles.push(this);
     }
     printAd() {
-        return `<hr><br>Hello there, our car is made by ${this.brand}, it is from ${this.year} and is ${this.color}`;
+        return `<hr><br>Hello there, this car is made by ${this.brand}, it is from ${this.year} and is ${this.color}`;
     }
 }
 const vehicle1 = new Vehicles("mercedes.jpg", "Mercedes", 1999, "silver", 50000);
@@ -65,11 +65,30 @@ class Motorbikes extends Vehicles {
     }
 }
 const moto1 = new Motorbikes("honda.jpg", "Honda", 2018, "green", 3000, 2, "electric power");
-console.log(moto1);
+const moto2 = new Motorbikes("brixton.jpg", "Brixton", 2021, "black", 2000, 1, "petrol");
+class Trucks extends Vehicles {
+    constructor(image, brand, year, color, price, hp, bedCover) {
+        super(image, brand, year, color, price);
+        this.hp = hp;
+        this.bedCover = bedCover;
+    }
+    printAd() {
+        let yesno = (this.bedCover == true) ? "yes" : "no"; //short if-statement von Julius
+        return `<hr><br>This truck uses ${this.hp} horsepower, truck bed cover included: ${yesno}.`;
+    }
+}
+const truck1 = new Trucks("dodge.jpg", "Dodge Ram", 2018, "green", 30000, 400, false);
+const truck2 = new Trucks("ford.jpg", "Ford F-150", 2021, "black", 20000, 400, true);
+// destructuring ------------------------------------------------------
+const { brand, hp, bedCover } = truck1;
+console.log(brand); // Dodge Ram
+console.log(hp); // 400
+console.log(bedCover); // false
+// destructuring end -----------------------------------------------------
 console.log(allVehicles);
 for (let val of allVehicles) {
     selWrap.innerHTML += ` 
-  <div class="box">${val.brand}</div>
+  <div class="box"><span class="orb">${val.brand}</span></div>
   `;
 }
 let boxs = document.getElementsByClassName("box");
@@ -78,12 +97,12 @@ for (let i = 0; i < boxs.length; i++) {
         boxs[i].style.backgroundColor = "white";
         boxs[i].innerHTML = `
     <div class="card" style="width: 20rem;">
-    <img src="${allVehicles[i].image}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">${allVehicles[i].brand}</h5>
-      <p class="card-text">${allVehicles[i].printAd()}</p>
-      <a href="#" class="btn btn-primary btnPrice">Price</a>
-    </div>
+      <img src="./images/${allVehicles[i].image}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${allVehicles[i].brand}</h5>
+        <p class="card-text">${allVehicles[i].printAd()}</p>
+        <a href="#" class="btn btn-primary btnPrice">Price</a>
+      </div>
     </div>
     `;
         let buttons = document.getElementsByClassName("btnPrice");
@@ -98,6 +117,3 @@ for (let i = 0; i < boxs.length; i++) {
         Swal.fire(`The price of the vehicle is: €&nbsp;${allVehicles[i].price}`);
     }
 }
-// von Julius für das Tertiary If:
-// let yesno = (this.companyCar==true)? "yes":"No"; // Create variable and make an if statement in a short way. After you can use this variable to print "yes" or "No" instead of "true" or "false"
-//     return `Hi, my name is ${this.name} and I'm ${this.age} years old. I need ${this.specialTool} Do I get a company car? ${yesno} `
