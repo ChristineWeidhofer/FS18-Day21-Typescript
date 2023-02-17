@@ -28,6 +28,7 @@ h1, .orb {
 
 .box:hover {
   transform: skew(-1deg);
+  box-shadow: 5px 5px 10px rgb(185, 185, 185);
 }
 
 #wrapper {

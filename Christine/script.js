@@ -74,7 +74,7 @@ class Trucks extends Vehicles {
     }
     printAd() {
         let yesno = (this.bedCover == true) ? "yes" : "no"; //short if-statement von Julius
-        return `<hr><br>This truck uses ${this.hp} horsepower, truck bed cover included: ${yesno}.`;
+        return `<hr><br>This truck uses ${this.hp} hp, truck bed cover included: ${yesno}.`;
     }
 }
 const truck1 = new Trucks("dodge.jpg", "Dodge Ram", 2018, "green", 30000, 400, false);
@@ -109,11 +109,24 @@ for (let i = 0; i < boxs.length; i++) {
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function () {
                 //console.log(`The price of the vehicle is: € ${allVehicles[i].price}`);
-                alertPrice();
+                calcPrice();
             });
         }
     });
-    function alertPrice() {
-        Swal.fire(`The price of the vehicle is: €&nbsp;${allVehicles[i].price}`);
+    // dummy calculation price
+    function calcPrice() {
+        let newPrice = (10000000 / (allVehicles[i].year)).toFixed(2); // toFixed() returns a string!!!
+        Swal.fire(`The price of the vehicle is: €&nbsp;${newPrice}`);
     }
 }
+// destructuring an array
+const jedi = ['Obi-Wan', 'Yoda'];
+const [x, y] = jedi;
+console.log(x); // Obi-Wan
+console.log(y); // Yoda
+// destructuring function parameters
+function myFunction(a, b, c = "Obi-Wan") {
+    console.log(`${a}, ${b}, ${c}.`);
+}
+myFunction("Yoda", "Mace Windu"); // Yoda, Mace Windu, Obi-Wan.
+myFunction("Yoda", "Mace Windu", "Luke Skywalker"); // Yoda, Mace Windu, Luke Skywalker.
